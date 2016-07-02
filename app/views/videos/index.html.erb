@@ -1,0 +1,36 @@
+<div class="center">
+<br>
+<img src="/logo1.png">
+</div>
+<hr width="410">
+<p id="notice"><%= notice %></p>
+
+<h2>Listing Videos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Wistiaid</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= video.wistiaid %></td>
+        <td><%= video.description %></td>
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Edit', edit_video_path(video) %></td>
+        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Video', new_video_path %>
